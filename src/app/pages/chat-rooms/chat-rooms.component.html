@@ -1,0 +1,41 @@
+
+<div class="chat-rooms">
+    <p-splitter [panelSizes]="[25, 75]" styleClass="mb-5">
+        <ng-template pTemplate>
+            <p-panel [toggleable]="false">
+                <ng-template pTemplate="header">
+                    <div class="flex align-items-center gap-2">
+                        <span>Chats</span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="footer">
+                    <div class="flex flex-wrap align-items-center justify-content-between gap-3">
+                        <div class="flex align-items-center gap-2">
+                            <p-button>Find and invite people</p-button>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="icons">
+                    <p-button icon="pi pi-search" [rounded]="true" [text]="true" (click)="filterByName()"></p-button>
+                    <p-button icon="pi pi-plus" [rounded]="true" [text]="true" (click)="addChatRoom()"></p-button>
+                </ng-template>
+                <p class="m-0">
+                    @for (chatRoom of chatRooms$ | async; track $index) {
+                        <app-chat [chatRoom]="chatRoom" (chatRoomSelected)="onChatRoomSelected($event)"></app-chat>
+                    } @empty {
+                        <div class="empty">
+                            <i class="pi pi-user" style="color: #708090"></i>
+                            <span class="empty__title">New Chat</span>
+                        </div>
+                    }
+                </p>
+            </p-panel>
+        </ng-template>
+
+        <ng-template pTemplate>
+            <div class="col flex align-items-center justify-content-center">
+                <app-conversation [chatRoomSelected]="chatRoomSelected"></app-conversation>
+            </div>
+        </ng-template>
+    </p-splitter>
+</div>

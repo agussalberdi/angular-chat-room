@@ -1,0 +1,8 @@
+<div class="chat" (click)="onChatRoomSelected(chatRoom)">
+    <i class="pi pi-users chat__icon" style="color: #708090"></i>
+    <div class="chat__text">
+        <p>{{ chatRoom.name }}</p>
+        <p>{{ chatRoom.messages[chatRoom.messages.length - 1] }}</p>
+    </div>
+    <i class="pi pi-ellipsis-h" style="color: #708090" (click)="openMenu($event)"></i>
+</div>

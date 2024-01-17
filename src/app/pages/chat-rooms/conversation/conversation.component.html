@@ -1,0 +1,7 @@
+<div>
+    <p>{{ chatRoomSelected.name }}</p>
+    <i class="pi pi-pencil" style="color: #708090" (click)="updateChatRoomName()"></i>
+    @for (message of chatRoomSelected.messages; track $index) {
+        <p>{{ message }}</p>
+    }
+</div>

@@ -1,0 +1,21 @@
+.chat {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+    width: 100%;
+
+    &__icon {
+        font-size: 2rem;
+        color: #708090;
+    }
+
+    &__text {
+        margin-left: 1rem;
+        flex: 1;
+        p {
+            margin: 0;
+            font-size: 0.8rem;
+        }
+    }
+}
