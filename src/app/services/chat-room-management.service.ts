@@ -17,7 +17,8 @@ export class ChatRoomManagementService {
       messages: [
         "Hola",
         "Adios"
-      ]
+      ],
+      favorite: false
     },
     {
       id: 'asf',
@@ -30,6 +31,7 @@ export class ChatRoomManagementService {
         "Hello",
         "Bye"
       ],
+      favorite: false
     },
     {
       id: 'asf',
@@ -42,6 +44,7 @@ export class ChatRoomManagementService {
         "Que tal?",
         "Bien y tu?"
       ],
+      favorite: false
     }
   ];
   chatRooms$: BehaviorSubject<ChatRoom[]> = new BehaviorSubject(this.chatRooms);
@@ -73,6 +76,14 @@ export class ChatRoomManagementService {
     const index = this.chatRooms.indexOf(chatRoom);
     if (index > -1) {
       this.chatRooms[index].messages.push(message);
+      this.chatRooms$.next(this.chatRooms);
+    }
+  }
+
+  favoriteChatRoom(chatRoom: ChatRoom) {
+    const index = this.chatRooms.indexOf(chatRoom);
+    if (index > -1) {
+      this.chatRooms[index].favorite = !this.chatRooms[index].favorite;
       this.chatRooms$.next(this.chatRooms);
     }
   }

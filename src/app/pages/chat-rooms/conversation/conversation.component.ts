@@ -14,11 +14,17 @@ import { FormsModule } from '@angular/forms';
 export class ConversationComponent {
   @Input() chatRoomSelected!: ChatRoom;
   message!: string;
+  isEditing = false;
 
   constructor(private chatRoomManagementService: ChatRoomManagementService) {}
 
+  toggleEditMode() {
+    this.isEditing = !this.isEditing;
+  }
+
   updateChatRoomName() {
-    this.chatRoomManagementService.updateChatRoomName(this.chatRoomSelected, 'New Chat Room Name');
+    this.chatRoomManagementService.updateChatRoomName(this.chatRoomSelected, this.chatRoomSelected.name);
+    this.isEditing = false;
   }
 
   sendMessage() {

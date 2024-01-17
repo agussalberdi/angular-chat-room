@@ -3,4 +3,5 @@ export interface ChatRoom {
     name: string;
     users: string[];
     messages: string[];
+    favorite: boolean;
 }

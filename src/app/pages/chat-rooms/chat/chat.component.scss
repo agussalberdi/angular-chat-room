@@ -1,7 +1,7 @@
 .chat {
     display: flex;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 0;
     cursor: pointer;
     width: 100%;
 
@@ -16,6 +16,19 @@
         p {
             margin: 0;
             font-size: 0.8rem;
+
+            &:last-child {
+                font-size: 0.7rem;
+                color: #708090;
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        gap: 1rem;
+        i {
+            font-size: 1rem;
         }
     }
 }

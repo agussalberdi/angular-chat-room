@@ -4,5 +4,10 @@
         <p>{{ chatRoom.name }}</p>
         <p>{{ chatRoom.messages[chatRoom.messages.length - 1] }}</p>
     </div>
-    <i class="pi pi-ellipsis-h" style="color: #708090" (click)="openMenu($event)"></i>
+    <div class="chat__actions">
+        @if (chatRoom.favorite) {
+            <i class="pi pi-star-fill" style="color: #fcdb00"></i>
+        }
+        <i class="pi pi-ellipsis-h" style="color: #708090" (click)="openMenu($event)"></i>
+    </div>
 </div>

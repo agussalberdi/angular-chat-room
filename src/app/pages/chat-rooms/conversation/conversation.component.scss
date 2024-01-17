@@ -1,0 +1,31 @@
+.conversation {
+    display: grid;
+    grid-template-rows: 0.5fr 2fr 0.5fr;
+    gap: 1rem;
+    padding: 1rem;
+    height: 100%;
+
+    &__name {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #708090;
+        i {
+            margin-left: 1rem;
+            cursor: pointer;
+        }
+    }
+
+    &__messages {
+        padding: 1rem;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &__input {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

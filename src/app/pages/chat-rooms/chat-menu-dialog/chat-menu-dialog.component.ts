@@ -25,4 +25,10 @@ export class ChatMenuDialogComponent {
     this.dynamicDialogRef.close(chatRoom);
     this.visible = false;
   }
+
+  favoriteChatRoom(chatRoom: ChatRoom) {
+    this.chatRoomManagementService.favoriteChatRoom(chatRoom);
+    this.dynamicDialogRef.close(chatRoom);
+    this.visible = false;
+  }
 }

@@ -1,13 +1,20 @@
-<div>
+<div class="conversation">
     @if (chatRoomSelected) {
-        <p>{{ chatRoomSelected.name }}</p>
-        <i class="pi pi-pencil" style="color: #708090" (click)="updateChatRoomName()"></i>
-        @for (message of chatRoomSelected.messages; track $index) {
-            <p>{{ message }}</p>
-        }
-
+        <div class="conversation__name">
+            @if (!isEditing) {
+                <p>{{ chatRoomSelected.name }}</p>
+                <i class="pi pi-pencil" style="color: #708090" (click)="toggleEditMode()"></i>
+            } @else {
+                <input type="text" pInputText [(ngModel)]="chatRoomSelected.name" (keyup.enter)="updateChatRoomName()"/>
+            }
+        </div>
+        <div class="conversation__messages">
+            @for (message of chatRoomSelected.messages; track $index) {
+                <p>{{ message }}</p>
+            }
+        </div>
         
-        <div class="card flex justify-content-center">
+        <div class="conversation__input">
             <input type="text" pInputText [(ngModel)]="message" (keyup.enter)="sendMessage()"/>
         </div>
     } @else {
