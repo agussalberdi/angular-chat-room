@@ -47,9 +47,13 @@ export class ChatRoomManagementService {
       favorite: false
     }
   ];
-  chatRooms$: BehaviorSubject<ChatRoom[]> = new BehaviorSubject(this.chatRooms);
+  private chatRooms$: BehaviorSubject<ChatRoom[]> = new BehaviorSubject(this.chatRooms);
 
   constructor() {}
+
+  getChatRooms() {
+    return this.chatRooms$;
+  }
 
   addChatRoom(chatRoom: ChatRoom) {
     this.chatRooms.push(chatRoom);

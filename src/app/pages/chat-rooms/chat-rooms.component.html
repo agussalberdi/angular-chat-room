@@ -3,24 +3,21 @@
     <p-splitter [panelSizes]="[25, 75]" styleClass="mb-5">
         <ng-template pTemplate>
             <p-panel [toggleable]="false">
-                <ng-template pTemplate="header">
-                    <div class="flex align-items-center gap-2">
-                        <span>Chats</span>
-                    </div>
-                </ng-template>
-                <ng-template pTemplate="footer">
-                    <div class="flex flex-wrap align-items-center justify-content-between gap-3">
+                @if (!isFiltering) {
+                    <ng-template pTemplate="header">
                         <div class="flex align-items-center gap-2">
-                            <p-button>Find and invite people</p-button>
+                            <span>Chats</span>
                         </div>
-                    </div>
-                </ng-template>
-                <ng-template pTemplate="icons">
-                    <p-button icon="pi pi-search" [rounded]="true" [text]="true" (click)="filterByName()"></p-button>
-                    <p-button icon="pi pi-plus" [rounded]="true" [text]="true" (click)="addChatRoom()"></p-button>
-                </ng-template>
+                    </ng-template>
+                    <ng-template pTemplate="icons">
+                        <p-button icon="pi pi-search" [rounded]="true" [text]="true" (click)="toggleFilterMode()"></p-button>
+                        <p-button icon="pi pi-plus" [rounded]="true" [text]="true" (click)="addChatRoom()"></p-button>
+                    </ng-template>
+                } @else {
+                     <app-filter [data]="chatRooms" (filteredData)="onFilterChange($event)"></app-filter>
+                }
                 <p class="m-0">
-                    @for (chatRoom of chatRooms$ | async; track $index) {
+                    @for (chatRoom of filteredChatRooms; track $index) {
                         <app-chat [chatRoom]="chatRoom" (chatRoomSelected)="onChatRoomSelected($event)"></app-chat>
                     } @empty {
                         <div class="empty">
@@ -29,6 +26,13 @@
                         </div>
                     }
                 </p>
+                <ng-template pTemplate="footer">
+                    <div class="flex flex-wrap align-items-center justify-content-between gap-3">
+                        <div class="flex align-items-center gap-2">
+                            <p-button>Find and invite people</p-button>
+                        </div>
+                    </div>
+                </ng-template>
             </p-panel>
         </ng-template>
 

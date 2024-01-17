@@ -1,1 +1,1 @@
-<!-- <input type="text" placeholder="Search" [(ngModel)]="filter" (keyup)="onFilterChange()" pInputText> -->
+<input type="text" placeholder="Search" [ngModel]="filter" (ngModelChange)="onFilterChange($event)" pInputText>
