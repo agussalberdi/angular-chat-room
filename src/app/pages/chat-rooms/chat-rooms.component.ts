@@ -17,7 +17,7 @@ import { ChatRoom } from './../../models/chat-room.model';
 })
 export class ChatRoomsComponent {
   readonly chatRooms$ = this.chatRoomManagementService.chatRooms$;
-  chatRoomSelected: ChatRoom = {} as ChatRoom;
+  chatRoomSelected: ChatRoom | undefined;
 
   constructor(private chatRoomManagementService: ChatRoomManagementService) {}
 

@@ -69,4 +69,12 @@ export class ChatRoomManagementService {
     }
   }
 
+  addChatRoomMessage(chatRoom: ChatRoom, message: string) {
+    const index = this.chatRooms.indexOf(chatRoom);
+    if (index > -1) {
+      this.chatRooms[index].messages.push(message);
+      this.chatRooms$.next(this.chatRooms);
+    }
+  }
+
 }
