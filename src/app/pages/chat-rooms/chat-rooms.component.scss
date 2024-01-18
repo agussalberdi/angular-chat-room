@@ -3,6 +3,34 @@
     flex-direction: column;
     height: 100%;
 
+    &__panel {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        padding: 1rem;
+
+        &__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 1rem;
+            border-bottom: 1px solid #708090;
+        }
+
+        &__filter {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        &__body {
+            
+        }
+    }
+
     .p-element {
         width: 100%;
     }

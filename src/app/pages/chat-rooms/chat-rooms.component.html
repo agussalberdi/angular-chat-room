@@ -1,22 +1,26 @@
 
 <div class="chat-rooms">
-    <p-splitter [panelSizes]="[25, 75]" styleClass="mb-5">
+    <p-splitter [panelSizes]="[30, 70]" styleClass="mb-5">
         <ng-template pTemplate>
-            <p-panel [toggleable]="false">
+            <div class="chat-rooms__panel">
+                <div class="chat-rooms__panel__header">
                 @if (!isFiltering) {
-                    <ng-template pTemplate="header">
-                        <div class="flex align-items-center gap-2">
-                            <span>Chats</span>
-                        </div>
-                    </ng-template>
-                    <ng-template pTemplate="icons">
+                    <div>
+                        <span>Chats</span>
+                    </div>
+
+                    <div>
                         <p-button icon="pi pi-search" [rounded]="true" [text]="true" (click)="toggleFilterMode()"></p-button>
                         <p-button icon="pi pi-plus" [rounded]="true" [text]="true" (click)="addChatRoom()"></p-button>
-                    </ng-template>
+                    </div>
                 } @else {
-                     <app-filter [data]="chatRooms" (filteredData)="onFilterChange($event)"></app-filter>
+                    <div class="chat-rooms__panel__filter">
+                        <app-filter [data]="chatRooms" (filteredData)="onFilterChange($event)"></app-filter>
+                        <p-button icon="pi pi-times" [rounded]="true" [text]="true" (click)="exitFilterMode()"></p-button>
+                    </div>
                 }
-                <p class="m-0">
+                </div>
+                <div class="chat-rooms__panel__body">
                     @for (chatRoom of filteredChatRooms; track $index) {
                         <app-chat [chatRoom]="chatRoom" (chatRoomSelected)="onChatRoomSelected($event)"></app-chat>
                     } @empty {
@@ -25,15 +29,13 @@
                             <span class="empty__title">New Chat</span>
                         </div>
                     }
-                </p>
-                <ng-template pTemplate="footer">
-                    <div class="flex flex-wrap align-items-center justify-content-between gap-3">
-                        <div class="flex align-items-center gap-2">
-                            <p-button>Find and invite people</p-button>
-                        </div>
+                </div>
+                <div class="chat-rooms__panel__footer">
+                    <div class="flex align-items-center gap-2">
+                        <p-button>Find and invite people</p-button>
                     </div>
-                </ng-template>
-            </p-panel>
+                </div>
+            </div>
         </ng-template>
 
         <ng-template pTemplate>

@@ -2,7 +2,6 @@ import { Component, OnDestroy } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs';
 import { SplitterModule } from 'primeng/splitter';
-import { PanelModule } from 'primeng/panel';
 import { ButtonModule } from 'primeng/button';
 import { ChatComponent } from './chat/chat.component';
 import { ConversationComponent } from './conversation/conversation.component';
@@ -13,7 +12,7 @@ import { ChatRoomManagementService } from './../../services/chat-room-management
 @Component({
   selector: 'app-chat-rooms',
   standalone: true,
-  imports: [AsyncPipe, SplitterModule, PanelModule, ButtonModule, ChatComponent, ConversationComponent, FilterComponent],
+  imports: [AsyncPipe, SplitterModule, ButtonModule, ChatComponent, ConversationComponent, FilterComponent],
   templateUrl: './chat-rooms.component.html',
   styleUrl: './chat-rooms.component.scss'
 })
@@ -46,6 +45,11 @@ export class ChatRoomsComponent implements OnDestroy{
 
   toggleFilterMode() {
     this.isFiltering = !this.isFiltering;
+  }
+
+  exitFilterMode() {
+    this.toggleFilterMode();
+    this.filteredChatRooms = this.chatRooms;
   }
 
   onFilterChange(filteredData: any) {
