@@ -1,6 +1,6 @@
-import { ChatRoom } from './../models/chat-room.model';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { ChatRoom, Message } from './../models/chat-room.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,18 @@ export class ChatRoomManagementService {
         "agustinalberdi2@gmail.com",
       ],
       messages: [
-        "Hola",
-        "Adios"
+        {
+          id: 'asf',
+          user: 'agustinalberdi1@gmail.com',
+          text: 'Hello',
+          date: new Date()
+        },
+        {
+          id: 'asf',
+          user: 'agustinalberdi2@gmail.com',
+          text: 'Hi! How you doing?',
+          date: new Date()
+        }
       ],
       favorite: false
     },
@@ -28,8 +38,18 @@ export class ChatRoomManagementService {
         "fakeuser2@gmail.com",
       ],
       messages: [
-        "Hello",
-        "Bye"
+        {
+          id: 'asf',
+          user: 'fakeuser1@gmail.com',
+          text: 'Hello',
+          date: new Date()
+        },
+        {
+          id: 'asf',
+          user: 'fakeuser2@gmail.com',
+          text: 'Bye',
+          date: new Date()
+        }
       ],
       favorite: false
     },
@@ -41,8 +61,18 @@ export class ChatRoomManagementService {
         "randomuser2@gmail.com",
       ],
       messages: [
-        "Que tal?",
-        "Bien y tu?"
+        {
+          id: 'asf',
+          user: 'randomuser1@gmail.com',
+          text: 'Ok sounds good!',
+          date: new Date()
+        },
+        {
+          id: 'asf',
+          user: 'randomuser2@gmail.com',
+          text: 'Awesome!',
+          date: new Date()
+        }
       ],
       favorite: false
     }
@@ -76,7 +106,7 @@ export class ChatRoomManagementService {
     }
   }
 
-  addChatRoomMessage(chatRoom: ChatRoom, message: string) {
+  addChatRoomMessage(chatRoom: ChatRoom, message: Message) {
     const index = this.chatRooms.indexOf(chatRoom);
     if (index > -1) {
       this.chatRooms[index].messages.push(message);

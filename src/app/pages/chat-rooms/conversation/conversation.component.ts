@@ -28,7 +28,13 @@ export class ConversationComponent {
   }
 
   sendMessage() {
-    this.chatRoomManagementService.addChatRoomMessage(this.chatRoomSelected, this.message);
+    const message = {
+      id: 'asf',
+      user: this.chatRoomSelected.users[0],
+      text: this.message,
+      date: new Date()
+    }
+    this.chatRoomManagementService.addChatRoomMessage(this.chatRoomSelected, message);
     this.message = '';
   }
 }

@@ -2,7 +2,7 @@
     <i class="pi pi-users chat__icon" style="color: #708090"></i>
     <div class="chat__text">
         <p>{{ chatRoom.name }}</p>
-        <p>{{ chatRoom.messages[chatRoom.messages.length - 1] }}</p>
+        <p>{{ chatRoom.messages[chatRoom.messages.length - 1].text }}</p>
     </div>
     <div class="chat__actions">
         @if (chatRoom.favorite) {

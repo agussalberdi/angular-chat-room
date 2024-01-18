@@ -10,12 +10,12 @@
         </div>
         <div class="conversation__messages">
             @for (message of chatRoomSelected.messages; track $index) {
-                <p>{{ message }}</p>
+                <p class="conversation__messages__item">{{ message.user }}: {{ message.text }}</p>
             }
         </div>
         
         <div class="conversation__input">
-            <input type="text" pInputText [(ngModel)]="message" (keyup.enter)="sendMessage()"/>
+            <input type="text" placeholder="Type a message" pInputText [(ngModel)]="message" (keyup.enter)="sendMessage()"/>
         </div>
     } @else {
         <p>No chat room selected</p>

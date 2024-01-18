@@ -20,7 +20,7 @@ export class FilterComponent {
       const filtered = this.data.filter(item =>
           item.name.toLowerCase().includes(event.toLowerCase()) ||
           item.users.find(user => user.toLowerCase().includes(event.toLowerCase())) ||
-          item.messages.find(message => message.toLowerCase().includes(event.toLowerCase()))
+          item.messages.find(message => message.text.toLowerCase().includes(event.toLowerCase()))
       );
       this.filteredData.emit(filtered);
     } else {

@@ -20,12 +20,24 @@
         overflow-y: scroll;
         display: flex;
         flex-direction: column;
+        align-items: flex-end;
         gap: 1rem;
+
+        &__item {
+            text-align: right;
+            background-color: #be74de;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            color: white;
+            width: fit-content;
+        }
     }
 
     &__input {
         display: flex;
         align-items: center;
-        justify-content: center;
+        input {
+            width: 100%;
+        }
     }
 }
