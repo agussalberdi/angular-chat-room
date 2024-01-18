@@ -15,11 +15,12 @@ export class FilterComponent {
   @Output() filteredData: EventEmitter<ChatRoom[]> = new EventEmitter();
   filter: string = '';
 
-  onFilterChange(event: any) {
-    if (event.length > 3) {
+  onFilterChange(event: string) {
+    if (event.length > 2) {
       const filtered = this.data.filter(item =>
           item.name.toLowerCase().includes(event.toLowerCase()) ||
-          item.users.find(user => user.toLowerCase().includes(event.toLowerCase()))
+          item.users.find(user => user.toLowerCase().includes(event.toLowerCase())) ||
+          item.messages.find(message => message.toLowerCase().includes(event.toLowerCase()))
       );
       this.filteredData.emit(filtered);
     } else {

@@ -5,11 +5,8 @@
             <div class="chat-rooms__panel">
                 <div class="chat-rooms__panel__header">
                 @if (!isFiltering) {
-                    <div>
-                        <span>Chats</span>
-                    </div>
-
-                    <div>
+                    <span class="chat-rooms__panel__header__title">Chats</span>
+                    <div class="chat-rooms__panel__header__actions">
                         <p-button icon="pi pi-search" [rounded]="true" [text]="true" (click)="toggleFilterMode()"></p-button>
                         <p-button icon="pi pi-plus" [rounded]="true" [text]="true" (click)="addChatRoom()"></p-button>
                     </div>
@@ -31,15 +28,13 @@
                     }
                 </div>
                 <div class="chat-rooms__panel__footer">
-                    <div class="flex align-items-center gap-2">
-                        <p-button>Find and invite people</p-button>
-                    </div>
+                    <p-button>Find and invite people</p-button>
                 </div>
             </div>
         </ng-template>
 
         <ng-template pTemplate>
-            <div class="col flex align-items-center justify-content-center">
+            <div class="chat-rooms__conversation">
                 <app-conversation [chatRoomSelected]="chatRoomSelected!"></app-conversation>
             </div>
         </ng-template>

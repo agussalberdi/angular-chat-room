@@ -27,22 +27,16 @@
         }
 
         &__body {
-            
+            .empty {
+                padding: 1rem;
+                &__title {
+                    margin-left: 1rem;
+                }
+            }
         }
     }
 
-    .p-element {
-        width: 100%;
-    }
-
-    .empty {
-        padding: 1rem;
-        &__title {
-            margin-left: 1rem;
-        }
-    }
-
-    .col {
+    &__conversation {
         width: 100%;
     }
 }

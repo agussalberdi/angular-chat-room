@@ -2,5 +2,8 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
+/* Order */
+@layer reset, primeng;
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
