@@ -4,13 +4,14 @@ import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ChipsModule } from 'primeng/chips';
 import { ButtonModule } from 'primeng/button';
 import { ToggleButtonModule } from 'primeng/togglebutton';
+import { InputTextModule } from 'primeng/inputtext';
 import { v4 as uuid } from 'uuid';
 import { ChatRoomManagementService } from './../../../services/chat-room-management.service';
 
 @Component({
   selector: 'app-add-chat-room',
   standalone: true,
-  imports: [ReactiveFormsModule, ButtonModule, ChipsModule, ToggleButtonModule],
+  imports: [ReactiveFormsModule, ButtonModule, ChipsModule, ToggleButtonModule, InputTextModule],
   templateUrl: './add-chat-room.component.html',
   styleUrl: './add-chat-room.component.scss'
 })
