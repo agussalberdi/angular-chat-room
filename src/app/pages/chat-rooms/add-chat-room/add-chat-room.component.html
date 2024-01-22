@@ -1,5 +1,15 @@
-<p-dialog class="dialog" [(visible)]="visible" [style]="{width: '50vw'}">
-    <p class="dialog__actions">
-        Hola
-    </p>
-</p-dialog>
+<div class="dialog">
+    <h1>New Chat Room</h1>
+    <form class="dialog__form" [formGroup]="addChatRoomForm" (ngSubmit)="addChatRoom()">
+        <p class="dialog__form__input">
+            <input pInputText type="text" placeholder="Chat Room Name" formControlName="name"/>
+        </p>
+        <p class="dialog__form__input">
+            <p-chips min="2" max="5" placeholder="Choose between 2 and 4 users" formControlName="users"></p-chips>
+        </p>
+        <p class="dialog__form__input">
+            <p-toggleButton formControlName="favorite" onIcon="pi pi-star-fill" offIcon="pi pi-star"></p-toggleButton>
+        </p>
+        <p-button label="Add" type="submit" />
+    </form>
+</div>

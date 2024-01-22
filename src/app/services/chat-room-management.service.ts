@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { v4 as uuid } from 'uuid';
 import { ChatRoom, Message } from './../models/chat-room.model';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { ChatRoom, Message } from './../models/chat-room.model';
 export class ChatRoomManagementService {
   chatRooms: ChatRoom[] = [
     {
-      id: 'asf',
+      id: uuid(),
       name: 'Chat Room 1',
       users: [
         "agustinalberdi1@gmail.com",
@@ -16,13 +17,13 @@ export class ChatRoomManagementService {
       ],
       messages: [
         {
-          id: 'asf',
+          id: uuid(),
           user: 'agustinalberdi1@gmail.com',
           text: 'Hello',
           date: new Date()
         },
         {
-          id: 'asf',
+          id: uuid(),
           user: 'agustinalberdi2@gmail.com',
           text: 'Hi! How you doing?',
           date: new Date()
@@ -31,7 +32,7 @@ export class ChatRoomManagementService {
       favorite: false
     },
     {
-      id: 'asf',
+      id: uuid(),
       name: 'Chat Room 2',
       users: [
         "fakeuser1@gmail.com",
@@ -39,13 +40,13 @@ export class ChatRoomManagementService {
       ],
       messages: [
         {
-          id: 'asf',
+          id: uuid(),
           user: 'fakeuser1@gmail.com',
           text: 'Hello',
           date: new Date()
         },
         {
-          id: 'asf',
+          id: uuid(),
           user: 'fakeuser2@gmail.com',
           text: 'Bye',
           date: new Date()
@@ -54,7 +55,7 @@ export class ChatRoomManagementService {
       favorite: false
     },
     {
-      id: 'asf',
+      id: uuid(),
       name: 'Chat Room 3',
       users: [
         "randomuser1@gmail.com",
@@ -62,13 +63,13 @@ export class ChatRoomManagementService {
       ],
       messages: [
         {
-          id: 'asf',
+          id: uuid(),
           user: 'randomuser1@gmail.com',
           text: 'Ok sounds good!',
           date: new Date()
         },
         {
-          id: 'asf',
+          id: uuid(),
           user: 'randomuser2@gmail.com',
           text: 'Awesome!',
           date: new Date()
@@ -109,6 +110,9 @@ export class ChatRoomManagementService {
   addChatRoomMessage(chatRoom: ChatRoom, message: Message) {
     const index = this.chatRooms.indexOf(chatRoom);
     if (index > -1) {
+      if (!this.chatRooms[index].messages) {
+        this.chatRooms[index].messages = [];
+      }
       this.chatRooms[index].messages.push(message);
       this.chatRooms$.next(this.chatRooms);
     }

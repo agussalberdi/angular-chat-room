@@ -2,7 +2,9 @@
     <i class="pi pi-users chat__icon" style="color: #708090"></i>
     <div class="chat__text">
         <p>{{ chatRoom.name }}</p>
-        <p>{{ chatRoom.messages[chatRoom.messages.length - 1].text }}</p>
+        @if (chatRoom.messages && chatRoom.messages.length > 0) {
+            <p>{{ chatRoom.messages[chatRoom.messages.length - 1].text }}</p>
+        }
     </div>
     <div class="chat__actions">
         @if (chatRoom.favorite) {
@@ -10,7 +12,7 @@
         }
         <div class="card flex justify-content-center">
             <p-messages class="toast"></p-messages>
-            <p-splitButton icon="pi pi-ellipsis-h" styleClass="p-button-outlined" (onClick)="save('info')" [model]="items"></p-splitButton>
+            <p-splitButton icon="pi pi-ellipsis-h" styleClass="p-button-sm p-button-outlined" [model]="items"></p-splitButton>
         </div>
     </div>
 </div>

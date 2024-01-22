@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './services/auth.guard';
 
 export const routes: Routes = [
     {
@@ -8,10 +9,30 @@ export const routes: Routes = [
     },
     {
         path: 'chat-rooms',
-        loadComponent: () => import('./pages/chat-rooms/chat-rooms.component').then(c => c.ChatRoomsComponent)
+        title: 'Chat Rooms',
+        loadComponent: () => import('./pages/chat-rooms/chat-rooms.component').then(c => c.ChatRoomsComponent),
+        // canActivate: [authGuard]
     },
     {
-        path: 'chat-rooms/:id',
-        loadComponent: () => import('./pages/chat-rooms/chat-rooms.component').then(c => c.ChatRoomsComponent)
+        path: 'auth',
+        title: 'Authentication',
+        loadComponent: () => import('./pages/auth/auth.component').then(c => c.AuthComponent),
+        children: [
+            {
+                path: 'login',
+                title: 'Login',
+                loadComponent: () => import('./pages/auth/login/login.component').then(c => c.LoginComponent)
+            },
+            {
+                path: 'register',
+                title: 'Register',
+                loadComponent: () => import('./pages/auth/register/register.component').then(c => c.RegisterComponent)
+            },
+            {
+                path: '',
+                redirectTo: 'login',
+                pathMatch: 'full'
+            }
+        ]
     }
 ];
