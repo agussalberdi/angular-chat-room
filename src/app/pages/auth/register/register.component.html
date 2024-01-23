@@ -1,0 +1,10 @@
+<form [formGroup]="registerForm" (ngSubmit)="signUp()">
+    <div class="inline-flex flex-column gap-2">
+        <input pInputText type="email" placeholder="Email" formControlName="email"/>
+    </div>
+    <div class="inline-flex flex-column gap-2">
+        <input pInputText type="password" placeholder="Password" formControlName="password"/>
+    </div>
+    <button pButton type="submit">Sign Up</button>
+    <a pButton href="auth/login">Already have an account?</a>
+</form>
