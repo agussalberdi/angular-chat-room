@@ -1,10 +1,13 @@
-<div class="card">
-    <p-toolbar>
-    <div class="p-toolbar-group-start">
-        <button pButton icon="pi pi-home" class="mr-2"></button>
+@if (user) {
+    <div class="card">
+        <p-toolbar>
+        <div class="p-toolbar-group-start">
+            <a pButton class="p-button-rounded p-button-success" icon="pi pi-home" routerLink="/chat-rooms"></a>
+            <a pButton class="p-button-rounded p-button-success" icon="pi pi-user" routerLink="/profile"></a>
+        </div>
+        <div class="p-toolbar-group-end">
+            <p-button icon="pi pi-power-off" [rounded]="true" severity="danger" (click)="logout()"></p-button>
+        </div>
+        </p-toolbar>
     </div>
-    <div class="p-toolbar-group-end">
-        <p-avatar icon="pi pi-user" styleClass="mr-2" shape="circle"></p-avatar>
-    </div>
-    </p-toolbar>
-</div>
+}

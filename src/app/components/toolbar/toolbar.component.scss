@@ -1,3 +1,8 @@
-.search {
-    padding-left: 2rem;
+.p-toolbar-group-start {
+    
+    a {
+        &:first-child {
+            margin-right: 0.5rem;
+        }
+    }
 }
