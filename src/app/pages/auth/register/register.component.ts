@@ -30,7 +30,10 @@ export class RegisterComponent {
   signUp() {
     const email = this.registerForm.get('email')?.value;
     const password = this.registerForm.get('password')?.value;
-    this.authService.createUser(email, password);
-    this.router.navigate(['/chat-rooms']);
+    this.authService.createUser(email, password)
+      .then(() => {
+        this.router.navigate(['/chat-rooms']);
+      })
+      .catch(err => console.log(err));
   }
 }

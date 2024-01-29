@@ -4,7 +4,11 @@
         <p-avatar class="profile__avatar" image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
         <div class="profile__actions">
             <p-button label="Logout" severity="danger" (click)="logout()"></p-button>
-            <p-button label="Delete Account" severity="danger" (click)="deleteAccount()"></p-button>
+            <div class="profile__actions__delete">
+                <p-toast></p-toast>
+                <p-confirmPopup></p-confirmPopup>
+                <p-button (click)="deleteAccount($event)" icon="pi pi-times" label="Delete Account" severity="danger"></p-button>
+            </div>
         </div>
     </app-main-container>
 </div>

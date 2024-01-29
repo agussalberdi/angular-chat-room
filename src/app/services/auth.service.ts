@@ -15,6 +15,7 @@ export class AuthService {
 
   /**
    * @desc Method for creating a new user.
+   * @returns Promise <firebase.auth.UserCredential>
    */
   createUser(email: string, password: string) {
     return createUserWithEmailAndPassword(this.auth, email, password);
@@ -22,6 +23,7 @@ export class AuthService {
 
   /**
    * @desc Method for user login.
+   * @returns Promise <firebase.auth.UserCredential>
    */
   login(email: string, password: string) {
     return signInWithEmailAndPassword(this.auth, email, password);
@@ -29,8 +31,17 @@ export class AuthService {
 
   /**
    * @desc Method for user logout.
+   * @returns Promise <void>
    */
   logout() {
     return this.auth.signOut();
+  }
+
+  /**
+   * @desc Method for deleting a user.
+   * @returns Promise <void>
+   */
+  deleteUser() {
+    return this.auth.currentUser?.delete();
   }
 }
