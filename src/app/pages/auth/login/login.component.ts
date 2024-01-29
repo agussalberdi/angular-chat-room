@@ -3,12 +3,13 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { MainContainerComponent } from './../../../components/layout/main-container/main-container.component';
 import { AuthService } from './../../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, InputTextModule, ButtonModule],
+  imports: [ReactiveFormsModule, InputTextModule, ButtonModule, MainContainerComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })

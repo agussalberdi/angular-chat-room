@@ -1,13 +1,15 @@
 <div class="login">
-    <h1>Sign In</h1>
-    <form class="login__form" [formGroup]="loginForm" (ngSubmit)="signIn()">
-        <div class="inline-flex flex-column gap-2">
-            <input pInputText type="email" placeholder="Email" formControlName="email"/>
-        </div>
-        <div class="inline-flex flex-column gap-2">
-            <input pInputText type="password" placeholder="Password" formControlName="password"/>
-        </div>
-        <button pButton type="submit">Login</button>
-        <a href="auth/register">Don't have an account?</a>
-    </form>
+    <app-main-container>
+        <h1>Sign In</h1>
+        <form class="login__form" [formGroup]="loginForm" (ngSubmit)="signIn()">
+            <div class="inline-flex flex-column gap-2">
+                <input pInputText type="email" placeholder="Email" formControlName="email"/>
+            </div>
+            <div class="inline-flex flex-column gap-2">
+                <input pInputText type="password" placeholder="Password" formControlName="password"/>
+            </div>
+            <button pButton type="submit">Login</button>
+            <a href="auth/register">Don't have an account?</a>
+        </form>
+    </app-main-container>
 </div>
